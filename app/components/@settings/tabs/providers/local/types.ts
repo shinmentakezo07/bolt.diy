@@ -1,5 +1,5 @@
 // Type definitions
-export type ProviderName = 'Ollama' | 'LMStudio' | 'OpenAILike';
+export type ProviderName = 'Ollama' | 'LMStudio' | 'OpenAILike' | 'NVIDIA';
 
 export interface OllamaModel {
   name: string;
@@ -35,10 +35,12 @@ export const PROVIDER_ICONS = {
   Ollama: 'Server',
   LMStudio: 'Monitor',
   OpenAILike: 'Globe',
+  NVIDIA: 'Chip',
 } as const;
 
 export const PROVIDER_DESCRIPTIONS = {
   Ollama: 'Run open-source models locally on your machine',
   LMStudio: 'Local model inference with LM Studio',
   OpenAILike: 'Connect to OpenAI-compatible API endpoints',
+  NVIDIA: 'Connect to NVIDIA AI platform API endpoints',
 } as const;

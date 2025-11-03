@@ -160,7 +160,14 @@ export default class NVIDIAProvider extends BaseProvider {
   }): LanguageModelV1 {
     const { model, serverEnv, apiKeys, providerSettings } = options;
 
-    let { apiKey, baseUrl } = this.getProviderBaseUrlAndKey({
+    const { baseUrl } = this.getProviderBaseUrlAndKey({
+      apiKeys,
+      providerSettings: providerSettings?.[this.name],
+      serverEnv: serverEnv as any,
+      defaultBaseUrlKey: 'NVIDIA_BASE_URL',
+      defaultApiTokenKey: 'NVIDIA_API_KEY',
+    });
+    let { apiKey } = this.getProviderBaseUrlAndKey({
       apiKeys,
       providerSettings: providerSettings?.[this.name],
       serverEnv: serverEnv as any,
